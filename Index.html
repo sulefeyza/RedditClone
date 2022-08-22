@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reddit Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./style.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="navbar border-bottom">
+        <div class="col-md-2" style="padding-left: 20px;">
+            <img src="logo2.png" class="logo">
+        </div>
+        <div class="col-md-5">
+            <form>
+                <div class="input-group ">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <input type="text" class="form-control" placeholder="Seacrh"
+                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-outline-primary" onclick="openModal('logInModal')">
+                Log-in
+            </a>
+            <a class="btn btn-primary" onclick="openModal('signUpModal')">
+                Sign-up
+            </a>
+        </div>
+
+        <div class="col-md-2 menu" style="padding-right: 40px;">
+            <div class="dropdown text-end">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-user" alt="mdo" width="32" height="32" class="rounded-circle"></i>
+                </a>
+                <ul class="dropdown-menu text-small">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 0;">
+        <div class="sidenav col-md-2">
+            <ul>
+                <p class="text-muted" style="font-size: 12px;">FEEDS</p>
+                <li> <i class="fa-solid fa-house"></i> Home</li>
+                <li> <i class="fa-solid fa-car"></i> Populer</li>
+            </ul>
+            <ul>
+                <p class="text-muted" style="font-size: 12px;">EXPLORE</p>
+                <button class="dropdown-btn">
+                    <i class="fa-solid fa-gamepad"></i> Gaming
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+                <button class="dropdown-btn">
+                    <i class="fa-solid fa-volleyball-ball"></i> Sports
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+                <button class="dropdown-btn">
+                    <i class="fa-solid fa-television"></i> Television
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+                <button class="dropdown-btn">
+                    <i class="fa-solid fa-star-half-stroke"></i> Celebrity
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+                <button class="dropdown-btn">
+                    <i class="fa-solid fa-money-bill"></i> Business, Economy
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </ul>
+            <div style="position: fixed; bottom: 0;">
+                <p class="text-muted" style="font-size: 14px;">JOIN REDDIT</p>
+                <span style="display:block;
+            width:300px;
+            word-wrap:break-word;">Create an account to follow your favorite communities and start taking part in
+                    conversations.</span>
+                <button style="margin:10px;" class="btn btn-primary">Create an account</button>
+            </div>
+        </div>
+
+        <div class="main col-md-10" style="margin-top: 75px;">
+            <div class="row">
+                <div class="col-3"> </div>
+                <div class="col-md-5" style="margin:auto" id="content">
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="margin-top: 10px">
+                        <h5 class="card-header">Featured</h5>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card" style="margin-top: 10px">
+                        <h5 class="card-header">Featured</h5>
+                        <div class="card-body">
+                            <button class="accordion">Section 1
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="panel">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+
+                            <button class="accordion">Section 2 <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="panel">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+
+                            <button class="accordion">Section 3 <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="panel">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="margin-top: 10px">
+                        <div class="card-body" id="tagCard">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Card</p>
+                                    <p>Card</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Card</p>
+                                    <p>Card</p>
+                                </div>
+                                <hr>
+                                <div class="col-md-6">
+                                    <p>Card</p>
+                                    <p>Card</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Card</p>
+                                    <p>Card</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <p>Reddit Inc © 2022. All rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1"> </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="logInModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('logInModal')">&times;</span>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword">
+            </div>
+
+            <a onclick="logInFunc()" href="#" class="btn btn-primary">LogIn</a>
+        </div>
+    </div>
+
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signUpModal')">&times;</span>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="mb-3">
+                <label for="mail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="mail" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+            <a onclick="SignUpFunc()" href="#" class="btn btn-success">Sign Up</a>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            addRow();
+        });
+
+        function SignUpFunc() {
+
+            let nameInputDom = document.querySelector('#name')
+            console.log(nameInputDom.value)
+            let mailInputDom = document.querySelector('#mail')
+            console.log(mailInputDom.value)
+            let passwordInputDom = document.querySelector('#password')
+            console.log(passwordInputDom.value)
+            const kisi = [nameInputDom.value, mailInputDom.value, passwordInputDom.value];
+            localStorage.setItem('kisi', JSON.stringify(kisi));
+            alert("Kayıt Oluşturuldu")
+
+            nameInputDom.value = "";
+            mailInputDom.value = "";
+            passwordInputDom.value = "";
+
+            return kisi;
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
